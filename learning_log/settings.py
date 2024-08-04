@@ -23,10 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-00dl2!bnsi3a)bq0rva$!m%e2nbi69^ije@csvfd0ma_6=@k*#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# 关闭调试模式
+DEBUG = False
 
-ALLOWED_HOSTS = []
+# 允许的服务器
+ALLOWED_HOSTS = ['*']
 
+# 静态文件收集目录
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 
 # Application definition
 
