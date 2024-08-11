@@ -26,10 +26,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'default_secret_key_for_develop
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # 关闭调试模式
-if os.environ.get('DEBUG') == 'TRUE':
-    DEBUG = True
-elif os.environ.get('DEBUG') == 'FALSE':
-    DEBUG = False
+DEBUG = False
+
 
 # 允许的服务器
 ALLOWED_HOSTS = ['*']
@@ -140,8 +138,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #我的设置
 LOGIN_URL = '/users/login/'
 
-#Heroku设置
-# 导入了模块 django_heroku 并调用了函数 settings()
-# 这个函数将一些设置修改为 Heroku 环境要求的值
-import django_heroku
-django_heroku.settings(locals())
+#阿里云服务器设置
