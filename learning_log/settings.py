@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+<<<<<<< HEAD
 import os
+=======
+import os  
+>>>>>>> 1dcbd6b50a1491bfc63288f59a4267e709d30f7d
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,14 +24,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-00dl2!bnsi3a)bq0rva$!m%e2nbi69^ije@csvfd0ma_6=@k*#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# 关闭调试模式
+DEBUG = False
 
-ALLOWED_HOSTS = []
+# 允许的服务器
+ALLOWED_HOSTS = ['*']
 
+# 静态文件收集目录
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 
 # Application definition
 
