@@ -26,7 +26,10 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'default_secret_key_for_develop
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # 关闭调试模式
-DEBUG = True
+if os.environ.get('DEBUG') == 'TRUE':
+    DEBUG = True
+elif os.environ.get('DEBUG') == 'FALSE':
+    DEBUG = False
 
 # 允许的服务器
 ALLOWED_HOSTS = ['*']
