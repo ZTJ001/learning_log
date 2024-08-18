@@ -75,7 +75,7 @@ def new_entry(request,topic_id):
 @login_required
 def edit_entry(request,entry_id):
     """编辑现有条目"""
-    entry = get_object_or_404(Entry，id=entry_id)
+    entry = get_object_or_404(Entry,id=entry_id)
     topic= entry.topic
     #确认请求的主题属于当前用户
     check_topic_owner(topic,request)
