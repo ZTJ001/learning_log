@@ -10,6 +10,16 @@ def index(request):
     """学习笔记的主页"""
     return render(request, 'learning_logs/index.html')
 
+def public_topics(request):
+    """显示公开的主题"""
+    topics = list(Topic.objects.all().order_by('-date_added'))
+    for topic in topics[:]:
+        if topic.public == False:
+            topics.remove(topic)
+ 
+    context = {'topics': topics}
+    return render(request, 'learning_logs/public.html', context)
+
 #查看限制，需要登陆
 @login_required
 def topics(request):
@@ -25,7 +35,9 @@ def topic(request,topic_id):
     """显示单个主题及其所有的条目"""
     #修改
     topic = get_object_or_404(Topic,id=topic_id)
-    check_topic_owner(topic,request)
+    if topic.public == False:
+        check_topic_owner(topic,request)
+        
     entries = topic.entry_set.order_by('date_added')
     context = {'topic':topic,'entries':entries}
     return render(request,'learning_logs/topic.html',context)

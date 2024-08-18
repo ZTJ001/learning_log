@@ -10,6 +10,9 @@ class Topic(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     #关联用户
     owner = models.ForeignKey(User,on_delete=models.CASCADE)
+    #设置公开属性
+    public = models.BooleanField(default=False)
+
     
     def __str__(self):
         """返回模型的字符串表示"""
