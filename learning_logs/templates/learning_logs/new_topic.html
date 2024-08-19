@@ -10,12 +10,19 @@
   <form action="{% url 'learning_logs:new_topic' %}" method='post' class ="form">
   
      {% csrf_token %}
-     {% bootstrap_form form %}
+     {% bootstrap_field form.text show_label=True %} 
      
-     <div class="checkbox-row">
-       <label class="vCheckboxlabel" for="id_public">Public or not?<label>
-     </div>
-     
+    <div class="form-group">  
+
+        <div class="form-check">  
+
+            <input type="checkbox" class="form-check-input" id="id_public" name="public">  
+
+            <label class="form-check-label" for="id_public">Public</label>  
+
+        </div>  
+
+    </div> 
       <button type="submit" class="btn btn-primary">Add New Topic</button>
    </form>
 
